@@ -38,12 +38,12 @@
 
                             <td>
                                 <div>
-                                    <form action="/kategori/delete/{{$item->id}}">
+                                    <form action="/kategori/delete/{{$item->id}}" id="delete-form">
                                         <a href="/kategori/edit/{{$item->id}}" class="btn btn-warning btn-sm"><i
                                                 class="fas fa-edit"></i> Edit</a>
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="btn btn-danger btn-sm">
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="confirmDelete()">
                                             <i class="fas fa-trash"></i> Hapus
                                         </button>
                                     </form>
@@ -76,3 +76,25 @@
 @endif
 
 @endsection
+@push('script')
+    <script>
+        function confirmDelete() {
+        event.preventDefault()
+        swal({
+      title: 'Are you sure?',
+      text: 'Once deleted, you will not be able to recover this imaginary file!',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+      swal(
+      document.getElementById('delete-form').submit()
+      );
+    
+      }
+    });
+}
+    </script>
+@endpush

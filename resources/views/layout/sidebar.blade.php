@@ -23,7 +23,7 @@
               <a href="/penerbit" class="nav-link"><i class="fas fa-cloud-upload-alt"></i><span>Penerbit</span></a>
             </li>
             <li class="dropdown">
-              <a href="#" class="nav-link"><i class="fas fa-user"></i><span>Anggota</span></a>
+              <a href="/anggota" class="nav-link"><i class="fas fa-user"></i><span>Anggota</span></a>
             </li>
             <li class="dropdown">
               <a href="#" class="nav-link"><i class="fas fa-book"></i><span>Buku</span></a>

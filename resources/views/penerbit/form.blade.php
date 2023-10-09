@@ -11,7 +11,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="/kategori/store" method="POST">
+        <form action="/penerbit/store" method="POST">
           @csrf
           <div class="form-group">
             <label for="exampleInputEmail1">Kode</label>

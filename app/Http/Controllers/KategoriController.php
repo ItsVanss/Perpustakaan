@@ -65,7 +65,7 @@ class KategoriController extends Controller
         $kategori->nama = $request->nama;
         $kategori->update();
 
-        return redirect('kategori')->with('sukses', 'Data berhasil disimpan');
+        return redirect('kategori')->with('sukses', 'Data berhasil diupdate');
     }
 
     /**

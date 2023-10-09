@@ -61,6 +61,7 @@
   
   <!-- JS Libraies -->
   @yield('script')
+  <script src="assets/modules/sweetalert/sweetalert.min.js"></script>
 
   <!-- Page Specific JS File -->
   
@@ -69,6 +70,6 @@
   <script src="{{asset('assets/js/custom.js')}}"></script>
 
 
-
+@stack('script')
 </body>
 </html>
