@@ -23,9 +23,9 @@
                             <th scope="col">No</th>
                             <th scope="col">Kode</th>
                             <th scope="col">Nama</th>
-                            <th scope="col">Jenis Kelamin</th>
-                            <th scope="col">Tempat Lahir</th>
-                            <th scope="col">Tanggal Lahir</th>
+                            <!-- <th scope="col">Jenis Kelamin</th> -->
+                            <!-- <th scope="col">Tempat Lahir</th> -->
+                            <!-- <th scope="col">Tanggal Lahir</th> -->
                             <th scope="col">Telepon</th>
                             <th scope="col">Alamat</th>
                             <th scope="col">Foto</th>
@@ -38,18 +38,18 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$item->kode}}</td>
                             <td>{{$item->nama}}</td>
-                            <td>{{$item->jenis_kelamin}}</td>
-                            <td>{{$item->tempat_lahir}}</td>
-                            <td>{{$item->tanggal_lahir}}</td>
+                            <!-- <td>{{$item->jenis_kelamin}}</td> -->
+                            <!-- <td>{{$item->tempat_lahir}}</td> -->
+                            <!-- <td>{{$item->tanggal_lahir}}</td> -->
                             <td>{{$item->telepon}}</td>
                             <td>{{$item->alamat}}</td>
-                            <td><img src="{{ asset('/storage/anggota/'.$item->foto) }}" class="rounded" style="width: 150px"></td>
+                            <td><img src="{{ asset('/storage/anggota/'.$item->foto) }}" class="rounded mt-1 mb-1" style="width: 150px"></td>
                             <td>
                                 <form action="/anggota/delete/{{$item->id}}" id="delete-form">
-                                    <a href="/anggota/{{$item->id}}/edit" class="btn btn-sm btn-outline-warning"><i class="fa fa-edit"></i></a>
+                                    <a href="/anggota/edit/{{$item->id}}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> Edit</a>
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="confirmDelete()"><i class="fa fa-trash"></i></a>
+                                    <button type="submit" class="btn btn-sm btn-danger" onclick="confirmDelete()"><i class="fa fa-trash"></i> Hapus</a>
                                 </form>
                             </td>
                         </tr>

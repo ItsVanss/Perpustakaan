@@ -66,6 +66,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="foto">Foto</label>
+                                <img src="{{ asset('/storage/anggota/'.$anggota->foto) }}" class="rounded mb-1 mt-1 " style="width: 150px" >
                                 <input type="file" class="form-control-file" name="foto">
                             </div>
                         </div>
