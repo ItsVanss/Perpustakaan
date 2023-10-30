@@ -49,7 +49,7 @@
                                     <a href="/anggota/edit/{{$item->id}}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> Edit</a>
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="confirmDelete()"><i class="fa fa-trash"></i> Hapus</a>
+                                    <button type="submit" class="btn btn-sm btn-danger" data-id="{{$item->id}}" onclick="confirmDelete(this)"><i class="fa fa-trash"></i> Hapus</a>
                                 </form>
                             </td>
                         </tr>
@@ -63,7 +63,7 @@
 @include('anggota.form')
 @endsection
 
-@section('script')
+@push('script')
 <script src="{{asset('assets/modules/iziToast.min.js')}}"></script>
 
 @if(session('sukses'))
@@ -75,27 +75,28 @@
   });
 </script>
 @endif
-@endsection
 
-@push('script')
 <script>
-    function confirmDelete() {
+    var data_anggota = $(this).attr('data-id')
+    function confirmDelete(button) {
+    
         event.preventDefault()
+        const id = button.getAttribute('data-id');
         swal({
                 title: 'Apa Anda Yakin ?',
-                text: 'Ketika Anda tekan OK, maka data tidak dapat dikembalikan !',
+                text: 'Anda akan menghapus Data Ketika Anda tekan OK, dan data tidak dapat dikembalikan !',
                 icon: 'warning',
                 buttons: true,
                 dangerMode: true,
             })
         .then((willDelete) => {
             if (willDelete) {
-                swal(
-                    document.getElementById('delete-form').submit()
-                );
+              const form = document.getElementById('delete-form');
+              // Setelah pengguna mengkonfirmasi penghapusan, Anda bisa mengirim form ke server
+              form.action = '/anggota/delete/' + id // Ubah aksi form sesuai dengan ID yang sesuai
+              form.submit();
             }
         });
     }
-
 </script>
 @endpush

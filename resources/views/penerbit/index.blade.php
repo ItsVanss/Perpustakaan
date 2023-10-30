@@ -60,6 +60,7 @@
     </div>
 </section>
 @endsection
+@include('penerbit.form')
 
 @section('script')
 <script src="{{asset('assets/modules/iziToast.min.js')}}"></script>
