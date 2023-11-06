@@ -12,6 +12,8 @@
 
   <!-- CSS Libraries -->
   <link rel="stylesheet" href="{{asset('assets/modules/css/iziToast.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/modules/datatables/Datatables-1.10.16/css/dataTables.bootstrap4.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/modules/datatables/datatables.min.css')}}">
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
@@ -60,16 +62,28 @@
   <script src="{{asset('assets/js/stisla.js')}}"></script>
   
   <!-- JS Libraies -->
-  
+  <script src="{{asset('assets/modules/izitoast/iziToast.min.js')}}"></script>
   <script src="assets/modules/sweetalert/sweetalert.min.js"></script>
+  
 
   <!-- Page Specific JS File -->
-  
+  <script src="{{asset('assets/modules/datatables/datatables.min.js')}}"></script>
+  <script src="{{asset('assets/modules/datatables/Datatables-1.10.16/js/dataTables.bootstrap4.min.js')}}"></script>
+
+
   <!-- Template JS File -->
   <script src="{{asset('assets/js/scripts.js')}}"></script>
   <script src="{{asset('assets/js/custom.js')}}"></script>
 
 
 @stack('script')
+{{-- @if(session('sukses'))
+<script>
+    iziToast.success({
+        title: '{{session('sukses')}}',
+        position: 'topRight'
+    });
+</script>
+@endif --}}
 </body>
 </html>

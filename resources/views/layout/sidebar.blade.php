@@ -10,7 +10,7 @@
 
             <li class="menu-header">Dashboard</li>
             <li class="dropdown">
-              <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+              <a href="/dashboard" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
 
             <!--Master-->

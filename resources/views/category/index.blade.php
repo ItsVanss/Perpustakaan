@@ -20,7 +20,7 @@
             </div>
 
             <div class="card-body">
-                <table class="table table-hover">
+                <table class="table table-hover" id="category-table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -43,7 +43,7 @@
                                                 class="fas fa-edit"></i> Edit</a>
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="btn btn-danger btn-sm" onclick="confirmDelete()">
+                                        <button type="submit" class="btn btn-danger btn-sm" data-id="{{$item->id}}" onclick="confirmDelete(this)">
                                             <i class="fas fa-trash"></i> Hapus
                                         </button>
                                     </form>
@@ -59,43 +59,46 @@
 
     </div>
 </section>
-@endsection
 @include('category.form')
 
-@section('script')
-<script src="{{asset('assets/modules/iziToast.min.js')}}"></script>
 
-@include('category.form')
-
-@if(session('sukses'))
-<script>
-    iziToast.success({
-        title: '{{session('sukses')}}',
-        position: 'topRight'
-    });
-</script>
-@endif
-
-@endsection
 @push('script')
     <script>
-        function confirmDelete() {
-        event.preventDefault()
-        swal({
-      title: 'Are you sure?',
-      text: 'Once deleted, you will not be able to recover this imaginary file!',
-      icon: 'warning',
-      buttons: true,
-      dangerMode: true,
-    })
-    .then((willDelete) => {
-      if (willDelete) {
-      swal(
-      document.getElementById('delete-form').submit()
-      );
+        var data_kategori = $(this).attr('data-id')
+    function confirmDelete(button) {
     
-      }
-    });
-}
+        event.preventDefault()
+        const id = button.getAttribute('data-id');
+        swal({
+                title: 'Apa Anda Yakin ?',
+                text: 'Anda akan menghapus Data Ketika Anda tekan OK, dan data tidak dapat dikembalikan !',
+                icon: 'warning',
+                buttons: true,
+                dangerMode: true,
+            })
+        .then((willDelete) => {
+            if (willDelete) {
+              const form = document.getElementById('delete-form');
+              // Setelah pengguna mengkonfirmasi penghapusan, Anda bisa mengirim form ke server
+              form.action = '/kategori/delete/' + id // Ubah aksi form sesuai dengan ID yang sesuai
+              form.submit();
+            }
+        });
+    }
+    
+        $(document).ready(function() {
+            $('#category-table').DataTable()
+        });
+
+        @if(session('sukses'))
+        iziToast.success({
+            title: 'sukses',
+            message: '{{session('sukses')}}',
+            position: 'topRight'
+        });
+        @endif
     </script>
 @endpush
+
+@endsection
+

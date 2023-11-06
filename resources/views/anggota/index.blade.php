@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="table table-hover">
+                <table class="table table-hover" id="anggota-table">
                     <thead>
                         <tr>
                             <th scope="col">No</th>
@@ -61,21 +61,9 @@
     </div>
 </section>
 @include('anggota.form')
-@endsection
+
 
 @push('script')
-<script src="{{asset('assets/modules/iziToast.min.js')}}"></script>
-
-@if(session('sukses'))
-<script>
-  iziToast.success({
-    title: 'Sukses',
-    message: '{{session('sukses')}}',
-    position: 'topRight'
-  });
-</script>
-@endif
-
 <script>
     var data_anggota = $(this).attr('data-id')
     function confirmDelete(button) {
@@ -98,5 +86,18 @@
             }
         });
     }
+
+    $(document).ready(function() {
+        $('#anggota-table').DataTable()
+    });
+
+    @if(session('sukses'))
+        iziToast.success({
+            title: '{{session('sukses')}}',
+            position: 'topRight'
+        });
+        @endif
 </script>
+
 @endpush
+@endsection
