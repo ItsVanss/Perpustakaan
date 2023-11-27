@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\anggota;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Storage;
+
+
 
 class AnggotaController extends Controller
 {
@@ -91,8 +90,6 @@ class AnggotaController extends Controller
      */
     public function update(Request $request, $id): RedirectResponse
     {
-        
-
         $anggota = Anggota::findOrFail($id);
 
         if ($request->hasFile('foto')) {

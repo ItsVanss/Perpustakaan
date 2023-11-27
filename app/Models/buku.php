@@ -4,10 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\kategori;
+use App\Models\penerbit;
 
 class buku extends Model
 {
     use HasFactory;
+
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class);
+    }
+
+    public function penerbit()
+    {
+        return $this->belongsTo(Penerbit::class);
+    }
 
     protected $fillable = [
         'kode',
@@ -16,10 +28,10 @@ class buku extends Model
         'penerbit_id',
         'isbn',
         'pengarang',
-        'jumlah_alamat',
+        'jumlah_halaman',
         'stok',
         'tahun_terbit',
         'sinopsis',
-        'gambar',
+        'foto',
     ];
 }

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('stok');
             $table->integer('tahun_terbit');
             $table->text('sinopsis');
-            $table->string('gambar');
+            $table->string('foto', 255);
 
             $table->timestamps();
         });

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PenerbitController;
 use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\BukuController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 
@@ -48,5 +49,11 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/anggota/edit/{id}', [AnggotaController::class, 'edit']);
     Route::put('/anggota/{id}', [AnggotaController::class, 'update']);
     Route::get('/anggota/delete/{id}', [AnggotaController::class, 'destroy']);
+
+    Route::get('/buku', [BukuController::class, 'index']);
+    Route::post('/buku/store', [BukuController::class, 'store'])->name('buku.store');
+    Route::get('/buku/edit/{id}', [BukuController::class, 'edit']);
+    Route::put('/buku/{id}', [BukuController::class, 'update']);
+    Route::get('/buku/delete/{id}', [BukuController::class, 'destroy']);
 
 });

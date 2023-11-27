@@ -26,7 +26,7 @@
               <a href="/anggota" class="nav-link"><i class="fas fa-user"></i><span>Anggota</span></a>
             </li>
             <li class="dropdown">
-              <a href="#" class="nav-link"><i class="fas fa-book"></i><span>Buku</span></a>
+              <a href="/buku" class="nav-link"><i class="fas fa-book"></i><span>Buku</span></a>
             </li>
 
             <!--Transaksi-->
