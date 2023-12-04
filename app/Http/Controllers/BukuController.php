@@ -6,6 +6,7 @@ use App\Models\buku;
 use Illuminate\Http\Request;
 use App\Models\penerbit;
 use App\Models\kategori;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class BukuController extends Controller
 {
@@ -130,4 +131,15 @@ class BukuController extends Controller
 
         return redirect('buku')->with('sukses', 'Data berhasil di hapus');
     }
-}
+
+
+    public function print($id)
+    {
+        $buku = Buku::find($id);
+
+        $pdf = Pdf::loadView('buku.print', compact('buku'));
+        $pdf->setPaper('A4');
+        return $pdf->stream();
+    }
+} 
+

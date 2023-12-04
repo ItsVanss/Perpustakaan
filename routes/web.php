@@ -55,5 +55,6 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/buku/edit/{id}', [BukuController::class, 'edit']);
     Route::put('/buku/{id}', [BukuController::class, 'update']);
     Route::get('/buku/delete/{id}', [BukuController::class, 'destroy']);
+    Route::get('/buku/print/{id}', [BukuController::class, 'print']);
 
 });

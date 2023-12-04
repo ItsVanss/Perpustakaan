@@ -64,7 +64,10 @@
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-sm btn-danger" data-id="{{$item->id}}"
-                                        onclick="confirmDelete(this)"><i class="fa fa-trash"></i> Hapus</a>
+                                        onclick="confirmDelete(this)"><i class="fa fa-trash"></i> Hapus</a></button>
+
+                                        <a href="/buku/print/{{$item->id}}" class="btn btn-sm btn-primary"><i
+                                            class="fa fa-print"></i> Print</a>
                                 </form>
                             </td>
                         </tr>

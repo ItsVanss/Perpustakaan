@@ -27,7 +27,7 @@
         <div class="col-lg-3 col-md-6 col-sm-6 col-12">
             <div class="card card-statistic-1">
                 <div class="card-icon bg-danger">
-                    <i class="far fa-newspaper"></i>
+                    <i class="fas fa-list"></i>
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
@@ -42,7 +42,7 @@
         <div class="col-lg-3 col-md-6 col-sm-6 col-12">
             <div class="card card-statistic-1">
                 <div class="card-icon bg-warning">
-                    <i class="far fa-file"></i>
+                    <i class="fas fa-book"></i>
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
@@ -57,7 +57,7 @@
         <div class="col-lg-3 col-md-6 col-sm-6 col-12">
             <div class="card card-statistic-1">
                 <div class="card-icon bg-success">
-                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-cloud-upload-alt"></i>
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
